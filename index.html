@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ông Công Ông Táo Về Trời - 23 Tháng Chạp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to bottom, #fffaf0, #ffe4e1);
+            color: #333;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        header {
+            background: linear-gradient(to right, #c62828, #d32f2f);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        header h1 {
+            font-size: 2.4em;
+            margin-bottom: 8px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffeb3b;
+            transform: scale(1.1);
+        }
+
+        nav a::before {
+            content: attr(data-icon);
+            margin-right: 8px;
+            font-size: 1.4em;
+        }
+
+        /* Decoration emoji fixed */
+        .deco-top-left,
+        .deco-top-right,
+        .deco-bottom {
+            position: fixed;
+            font-size: 80px;
+            opacity: 0.75;
+            z-index: 900;
+        }
+
+        .deco-top-left {
+            top: 90px;
+            left: 20px;
+        }
+
+        .deco-top-right {
+            top: 90px;
+            right: 20px;
+        }
+
+        .deco-bottom {
+            bottom: 30px;
+            right: 40px;
+            font-size: 100px;
+        }
+
+        section {
+            margin: 120px 20px 60px;
+            padding: 35px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            position: relative;
+        }
+
+        h2 {
+            color: #c62828;
+            border-bottom: 4px solid #ef5350;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            position: relative;
+            /* padding-left: 65px; */
+        }
+
+        h2::before {
+            content: attr(data-icon);
+            position: absolute;
+            left: 0;
+            top: -8px;
+            font-size: 55px;
+        }
+
+        img.hero {
+            width: 80%;
+            max-width: 500px;
+            display: block;
+            margin: 30px auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease;
+        }
+
+        img.hero:hover {
+            transform: scale(1.04);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ef9a9a;
+            padding: 14px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ef5350;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #ffebee;
+            transition: background-color 0.3s;
+        }
+
+        .sticky-note {
+            position: sticky;
+            top: 90px;
+            background: #fffde7;
+            border-left: 6px solid #fbc02d;
+            padding: 18px;
+            margin: 30px 0;
+            font-weight: bold;
+            font-size: 1.3em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ol,
+        ul {
+            line-height: 1.9;
+            padding-left: 35px;
+            margin: 20px 0;
+        }
+
+        .tip {
+            font-style: italic;
+            color: #d81b60;
+            font-weight: bold;
+            font-size: 1.15em;
+            margin-top: 30px;
+            position: relative;
+            /* padding-left: 55px; */
+        }
+
+        .tip-icon {
+            font-size: 35px;
+            /* vertical-align: middle; */
+            margin-right: 10px;
+        }
+
+        form {
+            max-width: 680px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff8e1;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 18px 0 8px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #ef5350;
+            outline: none;
+            box-shadow: 0 0 8px rgba(239, 83, 80, 0.3);
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            display: block;
+            margin: 10px 0;
+            font-weight: normal;
+        }
+
+        input[type="submit"] {
+            background: #c62828;
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background: #b71c1c;
+            transform: translateX(-50%) scale(1.08);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #424242;
+            color: white;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+        }
+
+        .section-icon {
+            font-size: 45px;
+            /* vertical-align: middle; */
+            margin-right: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Fixed decoration -->
+
+
+    <!-- Header -->
+    <header>
+        <h1>Ông Công Ông Táo Về Trời 🌌🐟</h1>
+        <nav>
+            <a href="#truyen-thuyet" data-icon="📜">Truyền Thuyết</a> |
+            <a href="#le-vat" data-icon="🍯">Lễ Vật</a> |
+            <a href="#nghi-thuc" data-icon="🔥">Nghi Thức</a> |
+            <a href="#loi-chuc" data-icon="📝">Lời Chúc</a>
+        </nav>
+    </header>
+
+    <!-- Truyền thuyết (mới thêm) -->
+    <section id="truyen-thuyet">
+        <img src="resource/image1.png" alt="Truyền thuyết Ông Táo" class="hero">
+        <h2><span class="section-icon">📜</span>Truyền Thuyết Về Ông Công Ông Táo</h2>
+        <p>Theo truyền thuyết dân gian, Táo Quân vốn là ba vị thần: Thổ Công (trông coi đất đai), Thổ Địa (trông coi nhà
+            cửa), Thổ Kỳ (trông coi bếp núc). Có câu chuyện kể về một người chồng tên Trọng Cao và vợ Thị Nhi sống hạnh
+            phúc nhưng không có con. Một lần cãi vã, người vợ bỏ đi và lấy chồng mới. Sau này chồng cũ nghèo khổ, được
+            vợ mới (Thị Nhi) giúp đỡ mà không biết. Khi nhận ra, Thị Nhi xấu hổ đâm đầu vào lửa chết. Người chồng và
+            người chồng mới cũng nhảy vào lửa theo. Ngọc Hoàng cảm động, phong cả ba làm Táo Quân trong bếp mỗi nhà.</p>
+        <p>Từ đó, hàng năm vào ngày 23 tháng Chạp, Táo Quân cưỡi cá chép về trời báo cáo việc gia đình với Ngọc Hoàng.
+        </p>
+    </section>
+
+    <!-- Lễ vật (mở rộng) -->
+    <section id="le-vat">
+        <img src="https://pos.nvncdn.com/26fee5-146732/ps/20240118_DCT1ynytUa.jpeg?v=1705548675"
+            alt="Mâm lễ vật cúng Ông Táo" class="hero">
+        <h2> <span class="section-icon">🍯</span>Lễ Vật Cúng Ông Táo Chi Tiết</h2>
+
+        <div class="sticky-note">🐟 Cá chép là phương tiện quan trọng nhất để Táo Quân về trời!</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Lễ Vật</th>
+                    <th>Số Lượng</th>
+                    <th>Ý Nghĩa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Cá chép sống (hoặc giấy)</td>
+                    <td>3 con</td>
+                    <td>Phương tiện đưa Táo Quân lên thiên đình</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Mũ ông Công (mũ cánh chuồn)</td>
+                    <td>2 ông, 1 bà (có cánh chuồn cho ông)</td>
+                    <td>Trang phục lên chầu trời</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Áo, hia, tiền vàng mã</td>
+                    <td>Đủ bộ</td>
+                    <td>Quần áo, tiền bạc mang theo</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Mâm ngũ quả tươi</td>
+                    <td>1 mâm</td>
+                    <td>Ngũ hành cân bằng</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Hương, hoa tươi, đèn nến, trầu cau, rượu, trà</td>
+                    <td>Đủ bộ</td>
+                    <td>Thành kính dâng lên</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Bánh chưng/mứt/kẹo</td>
+                    <td>Vừa đủ</td>
+                    <td>Mời Táo Quân thưởng thức</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </section>
+
+    <!-- Nghi thức (mở rộng + văn khấn) -->
+    <section id="nghi-thuc">
+
+        <h2> <span class="section-icon">🔥</span>Nghi Thức Cúng & Văn Khấn</h2>
+
+        <ol>
+            <li>Chuẩn bị mâm cúng sạch sẽ trên bàn thờ hoặc bếp.</li>
+            <li>Thắp hương, đèn nến vào giờ tốt (thường chiều tối 23 Chạp).</li>
+            <li>Khấn vái thành tâm theo văn khấn truyền thống.</li>
+            <li>Sau khấn, đốt vàng mã và thả cá chép xuống sông/hồ.</li>
+            <li>Kiêng quét nhà, đổ rác đến sau Giao thừa để giữ may mắn.</li>
+        </ol>
+
+        <h3>Văn Khấn Mẫu Truyền Thống</h3>
+        <img src="https://cdn.xanhsm.com/2025/01/219064fa-van-khan-cung-ong-cong-ong-tao-2.jpg"
+            alt="Văn khấn cúng Ông Táo" class="hero">
+
+        <p class="tip"><span class="tip-icon">💡</span>Mẹo: Không nên quét nhà, đổ rác sau khi cúng Ông Táo để tránh
+            "quét sạch" may mắn!</p>
+    </section>
+
+    <!-- Form lời chúc (giữ nguyên nhưng thêm checkbox kiêng kỵ) -->
+    <section id="loi-chuc">
+        <h2> <span class="section-icon">📝</span>Gửi Lời Chúc & Mong Ước Năm Mới</h2>
+
+        <form>
+            <label for="name">Họ tên bạn:</label>
+            <input type="text" id="name" placeholder="Ví dụ: Nguyễn Văn A" required>
+
+            <label for="email">Email (nhận lời chúc Tết):</label>
+            <input type="email" id="email" placeholder="email@domain.com">
+
+            <label>Bạn mong Táo Quân "nói tốt" điều gì?</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="good"> Gia đình hòa thuận</label>
+                <label><input type="checkbox" name="good"> Công việc thuận lợi</label>
+                <label><input type="checkbox" name="good"> Tài lộc dồi dào</label>
+                <label><input type="checkbox" name="good"> Sức khỏe bình an</label>
+            </div>
+
+            <label>Mức độ thành tâm:</label>
+            <select>
+                <option>Thành tâm nhất 🙏</option>
+                <option>Rất thành tâm</option>
+                <option>Thành tâm vừa</option>
+                <option>Thành tâm bình thường</option>
+            </select>
+
+            <label>Lời nhắn gửi Ông Táo:</label>
+            <textarea rows="6" placeholder="Ông Táo ơi, năm nay con ngoan lắm..."></textarea>
+            <br>
+            <br>
+            <input type="submit" value="Gửi Lời Chúc Lên Trời 🚀">
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 - Chúc Mừng Năm Mới An Khang Thịnh Vượng</p>
+        <br>
+        <a href="https://vi.wikipedia.org/wiki/T%C3%A1o_Qu%C3%A2n" target="_blank">Tìm hiểu thêm về Táo Quân</a>
+    </footer>
+
+</body>
+
+</html>
